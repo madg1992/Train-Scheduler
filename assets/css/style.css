@@ -6,4 +6,23 @@
     margin: 0 auto;
 }
 
+.addNewTrain {
+    margin-top: 35px;
+}
+
+#train-form h3 {
+    background: rgb(165, 117, 180);
+    text-decoration: underline;
+    color: white;
+    text-align: center;
+}
+
+.display-4{
+    text-align: center;
+}
+
+.lead {
+    text-align: center;
+}
+
 

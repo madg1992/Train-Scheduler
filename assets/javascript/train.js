@@ -57,8 +57,11 @@ trainData.ref().on("child_added",function(snapshot){
     // var newTableData =
     // $("<td id='train-name-data'>" + snapshot.val())
 
+    //append train data to train table
     $("#trainTable > tBody").append("<tr><td>"+name+"</td><td>"+destination+"</td><td>"+frequency+"</td><td>"+nextArrival+"</td><td>"+minutesLeft+"</td></tr>");
 })
+
+
 
 
 
