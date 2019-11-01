@@ -11,35 +11,37 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  // firebase.analytics();
 
 //create a shortcut in trainData to reference the Firebase database 
 //so we don't have to type firebase.database() everytime
-var trainData = firebase.database();
+var database = firebase.database();
 
 // capture data from the form when button to add new train is clicked
 $("#trainForm").on("click", function(event){
     var trainName = $("#train-name").val().trim();
     var destination = $("#destination").val().trim();
     var frequency =$("#frequency").val().trim();
-    var firstTrain = moment($("#first-train").val().trim(),"HH:mm").subtract(10,"years").format("x");
+    var firstTrain = moment($("#first-train").val().trim(),"HH:mm").subtract(10,"years").format("X");
 
-    trainData.ref().push({
+    database.ref().push({
         name: trainName,
         destination: destination,
         frequency: frequency,
         firstTrain: firstTrain 
-    )}  
-
-    // resets and clears the values in the form when button is clicked and form is submitted
+    })
+// resets and clears the values in the form when button is clicked and form is submitted
     $("#train-form")[0].reset();
     
     //avoid reloading the page when button is clicked
     event.preventDefault();
-   
-)}
+  });
+
+    
+  
 
 // collect data from Firebase
-trainData.ref().on("child_added",function(snapshot){
+database.ref().on("child_added",function(snapshot){
     var name = snapshot.val().name;
     var destination = snapshot.val().destination;
     var frequency = snapshot.val().frequency;
