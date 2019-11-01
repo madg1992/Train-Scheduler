@@ -11,7 +11,6 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  // firebase.analytics();
 
 //create a shortcut in trainData to reference the Firebase database 
 //so we don't have to type firebase.database() everytime
